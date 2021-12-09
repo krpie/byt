@@ -36,8 +36,8 @@ class food:
         return None 
         
 class FoodDict(TypedDict):
-    consumption_date: datetime
     meal: food
+    consumption_date: datetime
 @dataclass
 class account:
     personaldata: str
