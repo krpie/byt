@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
 from datetime import datetime
+from typing import List
 
 class measurement_unit(Enum):
     grams = 1
@@ -18,7 +19,13 @@ class activity_status(Enum):
     avarage_work = 4
     intense_work = 5
     
-
+@dataclass
+class body_measurements:
+    weight_kg: float
+    height_cm: float
+    neck_cm: float
+    waist_cm: float
+    
 @dataclass
 class food:
     name: str
@@ -31,11 +38,9 @@ class account:
     phone: str
     email: str
     birth_date: datetime
-    
-@dataclass
-class body_measurements:
-    weight_kg: float
-    height_cm: float
-    neck_cm: float
-    waist_cm: float
+    measurements: body_measurements
+    status: activity_status
+    food_list: List[food]
+
+
     
