@@ -1,18 +1,18 @@
 from dataclasses import dataclass
 from enum import Enum
 from datetime import datetime
-from typing import List
+from typing import TypedDict
 
-class measurement_unit(Enum):
+class MeasurementUnit(Enum):
     grams = 1
     portions = 2
     
-class region(Enum):
+class Region(Enum):
     us = 1
     uk = 2
     pl = 3
 
-class activity_status(Enum):
+class ActivityStatus(Enum):
     still = 1
     slightly_active = 2
     sedentary_work = 3
@@ -20,7 +20,7 @@ class activity_status(Enum):
     intense_work = 5
     
 @dataclass
-class body_measurements:
+class BodyMeasurements:
     weight_kg: float
     height_cm: float
     neck_cm: float
@@ -29,18 +29,24 @@ class body_measurements:
 @dataclass
 class food:
     name: str
-    unit: measurement_unit
+    unit: MeasurementUnit
     calories_per_100_g: int
-    
+        
+    def calculate_calories():
+        return None 
+        
+class FoodDict(TypedDict):
+    consumption_date: datetime
+    meal: food
 @dataclass
 class account:
     personaldata: str
     phone: str
     email: str
     birth_date: datetime
-    measurements: body_measurements
-    status: activity_status
-    food_list: List[food]
+    measurements: BodyMeasurements
+    status: ActivityStatus
+    food_list: FoodDict
 
 
     
