@@ -26,7 +26,7 @@ class BodyMeasurements:
     neck_cm: float
     waist_cm: float
     
-@dataclass
+@dataclass(frozen=False)
 class food:
     name: str
     unit: MeasurementUnit
@@ -46,7 +46,10 @@ class account:
     birth_date: datetime
     measurements: BodyMeasurements
     status: ActivityStatus
-    food_list: FoodDict
+    food_list: FoodDict 
 
 
-    
+
+account1 = account("name1", "00000", "mail@mail.com", datetime.now, BodyMeasurements(1, 1, 1, 1), ActivityStatus.avarage_work, FoodDict)
+account1.food_list[food("food1", MeasurementUnit.grams, calories_per_100_g=1000)]
+print(f"{account1}")
