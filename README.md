@@ -1,0 +1,1 @@
+note: `@dataclass` with parameter `order=true` creates necessary constructors, getters and setters  
