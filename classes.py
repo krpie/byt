@@ -19,7 +19,7 @@ class ActivityStatus(Enum):
     avarage_work = 4
     intense_work = 5
     
-@dataclass
+@dataclass(frozen=False)
 class BodyMeasurements:
     weight_kg: float
     height_cm: float
@@ -38,7 +38,7 @@ class food:
 class FoodDict(TypedDict):
     meal: food
     consumption_date: datetime
-@dataclass
+@dataclass(frozen=False)
 class account:
     personaldata: str
     phone: str
