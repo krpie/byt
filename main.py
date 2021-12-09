@@ -13,6 +13,10 @@ class region(Enum):
 
 class activity_status(Enum):
     still = 1
+    slightly_active = 2
+    sedentary_work = 3
+    avarage_work = 4
+    intense_work = 5
     
 
 @dataclass
